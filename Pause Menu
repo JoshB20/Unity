@@ -1,0 +1,43 @@
+using Photon.Pun;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+public class MainMenu : MonoBehaviour
+{
+    public GameObject ferno;
+    public GameObject mage;
+    public GameObject selectUI;
+
+    public void PlayGameTest()
+    {
+        SceneManager.LoadScene("Temple Sprint 2 Week 1");
+    }
+
+    public void PlayGameMech()
+    {
+        // load the main game scene when the play button is clicked
+        //SceneManager.LoadScene("Temple Sprint 2 Week 1");
+        PhotonNetwork.Instantiate(ferno.name, Vector3.zero, Quaternion.identity);
+        Debug.Log("FernoSpawned");
+        ferno.SetActive(true);
+        selectUI.SetActive(false);
+    }
+
+    public void PlayGameKorum()
+    {
+        // load the main game scene when the play button is clicked
+        //SceneManager.LoadScene("Temple Sprint 2 Week 1");
+        PhotonNetwork.Instantiate(mage.name, Vector3.zero, Quaternion.identity);
+        Debug.Log("MageSpawned");
+        mage.SetActive(true);
+        selectUI.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        // close application when the exit button is clicked
+        Application.Quit();
+        Debug.Log("quit");
+    }
+}
